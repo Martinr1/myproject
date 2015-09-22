@@ -40,8 +40,18 @@ function ExampleCtrl() {
 
     vm.newName = "";
     vm.newPrice = "";
+        vm.newFrequency = "";
 
   };
+
+    vm.buttonDisable = function(){
+
+      if (vm.newName != "" && vm.newPrice !="" && vm.newFrequency !="") {
+        return true;
+    }
+
+
+    };
 
 }
 

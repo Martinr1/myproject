@@ -26,6 +26,7 @@
       <td> {{package.frequency}}  </td>
      <td> {{package.name}}  </td>
      <td> {{package.price | currency}} </td>
+      <td><button type="button">delete</button> </td>
 
    </tr>
  </tbody>
@@ -37,8 +38,9 @@ name:  {{ctrl.newName}} price: {{ctrl.newPrice}}
  <input type="text" ng-model="ctrl.newPrice" >
  monthly  <input type="radio" ng-model="ctrl.newFrequency" value="monthly" >
  once  <input type="radio" ng-model="ctrl.newFrequency" value="once" >
+ <span ng-if="ctrl.buttonDisable()">
  <input type="submit" ng-click="ctrl.addPackage()" value="add" />
-
+</span>
 
 
 </form>
