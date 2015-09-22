@@ -30,26 +30,32 @@ function ExampleCtrl() {
 
   vm.addPackage = function(){
 
-      console.log("hello")
-
     vm.PackageData.push({
-         frequency: vm.newFrequency,
-         name: vm.newName,
-         price: vm.newPrice
+           frequency: vm.newFrequency,
+           name: vm.newName,
+           price: vm.newPrice
     });
 
     vm.newName = "";
     vm.newPrice = "";
-        vm.newFrequency = "";
+    vm.newFrequency = "";
 
   };
 
-    vm.buttonDisable = function(){
+  vm.buttonDisable = function(){
 
       if (vm.newName != "" && vm.newPrice !="" && vm.newFrequency !="") {
         return true;
-    }
+  }
 
+
+    };
+
+    vm.deletePackage = function(item){
+
+
+    var index =vm.PackageData.indexOf(item);
+    vm.PackageData.splice(index,1);
 
     };
 

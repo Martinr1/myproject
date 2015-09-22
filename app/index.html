@@ -20,31 +20,27 @@
           <th>frequency</th>
          <th>Product</th>
          <th>Price</th>
- </thead>
-<tbody >
-   <tr ng-repeat="package in ctrl.PackageData" >
-      <td> {{package.frequency}}  </td>
-     <td> {{package.name}}  </td>
-     <td> {{package.price | currency}} </td>
-      <td><button type="button">delete</button> </td>
-
-   </tr>
- </tbody>
-      </table>
-name:  {{ctrl.newName}} price: {{ctrl.newPrice}}
-</br>
-<form>
- <input type="text" ng-model="ctrl.newName" >
- <input type="text" ng-model="ctrl.newPrice" >
- monthly  <input type="radio" ng-model="ctrl.newFrequency" value="monthly" >
- once  <input type="radio" ng-model="ctrl.newFrequency" value="once" >
- <span ng-if="ctrl.buttonDisable()">
- <input type="submit" ng-click="ctrl.addPackage()" value="add" />
-</span>
-
-
-</form>
-
+        </thead>
+        <tbody >
+          <tr ng-repeat="package in ctrl.PackageData" >
+            <td> {{package.frequency}}  </td>
+            <td> {{package.name}}  </td>
+            <td> {{package.price | currency}} </td>
+            <td><button ng-click="ctrl.deletePackage(package)" >delete</button> </td>
+          </tr>
+       </tbody>
+     </table>
+    name:  {{ctrl.newName}} price: {{ctrl.newPrice}}
+     </br>
+      <form>
+        <input type="text" ng-model="ctrl.newName" >
+        <input type="text" ng-model="ctrl.newPrice" >
+        monthly  <input type="radio" ng-model="ctrl.newFrequency" value="monthly" >
+        once  <input type="radio" ng-model="ctrl.newFrequency" value="once" >
+        <span ng-if="ctrl.buttonDisable()">
+          <input type="submit" ng-click="ctrl.addPackage()" value="add" />
+       </span>
+      </form>
 
   </body>
 </html>
