@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function ExampleCtrl() {
+function ProductController(productService) {
 
   // ViewModel
   var vm = this;
@@ -18,15 +18,8 @@ function ExampleCtrl() {
   vm.newPrice = '';
   vm.newPackage = '';
 
-  vm.PackageData = [
-    {frequency: 'monthly', name: 'Hero', price: 25.0},
-    {frequency: 'monthly', name: 'Leader', price: 50.0},
-    {frequency: 'monthly', name: 'Champion', price: 100.0},
-    {frequency: 'once', name: 'Daisy', price: 2.0},
-    {frequency: 'once', name: 'Butterfly', price: 10.0},
-    {frequency: 'once', name: 'Honey Bee', price: 25.0},
-    {frequency: 'once', name: 'Hummingbird', price: 50.0}
-  ];
+  vm.PackageData = productService.PackageData;
+
 
   vm.addPackage = function(){
 
@@ -46,13 +39,11 @@ function ExampleCtrl() {
 
       if (vm.newName != "" && vm.newPrice !="" && vm.newFrequency !="") {
         return true;
-  }
+      }
 
+  };
 
-    };
-
-    vm.deletePackage = function(item){
-
+  vm.deletePackage = function(item){
 
     var index =vm.PackageData.indexOf(item);
     vm.PackageData.splice(index,1);
@@ -61,4 +52,4 @@ function ExampleCtrl() {
 
 }
 
-controllersModule.controller('ExampleCtrl', ExampleCtrl);
+controllersModule.controller('ProductController',["ProductService", ProductController]);
