@@ -18,16 +18,26 @@
       <table>
         <thead>
          <th>Product</th>
-   <th>Price</th>
+         <th>Price</th>
  </thead>
 <tbody >
    <tr ng-repeat="package in ctrl.PackageData" >
      <td> {{package.name}}  </td>
-     <td> {{package.price}} </td>
-      <td> delete </td>
+     <td> {{package.price | currency}} </td>
+
    </tr>
  </tbody>
       </table>
+name:  {{ctrl.newName}} price: {{ctrl.newPrice}}
+</br>
+<form>
+ <input type="text" ng-model="ctrl.newName" >
+ <input type="text" ng-model="ctrl.newPrice" >
+ <input type="submit" ng-click="ctrl.addPackage()" value="add" />
+
+
+
+</form>
 
 
   </body>

@@ -13,6 +13,11 @@ function ExampleCtrl() {
   vm.title = 'AngularJS, Gulp, and Browserify!';
   vm.number = 1234;
 
+  vm.newName = '';
+  vm.newFrequency = '';
+  vm.newPrice = '';
+  vm.newPackage = '';
+
   vm.PackageData = [
     {frequency: 'monthly', name: 'Hero', price: 25.0},
     {frequency: 'monthly', name: 'Leader', price: 50.0},
@@ -22,6 +27,21 @@ function ExampleCtrl() {
     {frequency: 'once', name: 'Honey Bee', price: 25.0},
     {frequency: 'once', name: 'Hummingbird', price: 50.0}
   ];
+
+  vm.addPackage = function(){
+
+      console.log("hello")
+
+    vm.PackageData.push({
+         frequency: vm.newFrequency,
+         name: vm.newName,
+         price: vm.newPrice
+    });
+
+    vm.newName = "";
+    vm.newPrice = "";
+
+  };
 
 }
 
