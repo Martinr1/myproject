@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="main">
   <head>
       <base href="/">
       <meta charset="utf-8">
@@ -9,22 +9,26 @@
       <meta name="viewport" content="width=device-width">
 
       <link rel="stylesheet" href="css/main.css">
+
+      <script src="js/main.js"></script>
+
   </head>
-  <body>
+  <body ng-controller="ExampleCtrl as ctrl">
 
       <table>
         <thead>
          <th>Product</th>
    <th>Price</th>
  </thead>
-<tbody>
-   <tr>
-   <td> first </td>
-   <td> second </td>
+<tbody >
+   <tr ng-repeat="package in ctrl.PackageData" >
+     <td> {{package.name}}  </td>
+     <td> {{package.price}} </td>
+      <td> delete </td>
    </tr>
  </tbody>
       </table>
 
-      <script src="js/main.js"></script>
+
   </body>
 </html>
