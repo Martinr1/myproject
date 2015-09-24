@@ -18,7 +18,9 @@ function ProductController(productService) {
   vm.newPrice = '';
   vm.newPackage = '';
 
-  vm.PackageData = productService.PackageData;
+  vm.PackageData =  productService.getPackage();
+console.log(productService);
+
 
 
   vm.addPackage = function(){
@@ -37,7 +39,7 @@ function ProductController(productService) {
 
   vm.buttonDisable = function(){
 
-      if (vm.newName != "" && vm.newPrice !="" && vm.newFrequency !="") {
+      if (vm.newName !== "" && vm.newPrice !=="" && vm.newFrequency !=="") {
         return true;
       }
 
