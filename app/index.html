@@ -13,34 +13,12 @@
       <script src="js/main.js"></script>
 
   </head>
-  <body ng-controller="ProductController as products">
+  <body >
 
-      <table>
-        <thead>
-          <th>frequency</th>
-         <th>Product</th>
-         <th>Price</th>
-        </thead>
-        <tbody >
-          <tr ng-repeat="package in products.PackageData" >
-            <td> {{package.frequency}}  </td>
-            <td> {{package.name}}  </td>
-            <td> {{package.price | currency}} </td>
-            <td><button ng-click="products.deletePackage(package)" >delete</button> </td>
-          </tr>
-       </tbody>
-     </table>
-    name:  {{products.newName}} price: {{products.newPrice}}
-     </br>
-      <form>
-        <input type="text" ng-model="products.newName" >
-        <input type="text" ng-model="products.newPrice" >
-        monthly  <input type="radio" ng-model="products.newFrequency" value="monthly" >
-        once  <input type="radio" ng-model="products.newFrequency" value="once" >
-        <span ng-if="products.buttonEnabled()">
-          <input type="submit" ng-click="products.addPackage()" value="add" />
-       </span>
-      </form>
+
+      <div ui-view></div>
+
+
 
   </body>
 </html>
