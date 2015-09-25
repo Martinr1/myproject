@@ -10,8 +10,8 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
   .state('Home', {
     url: '/',
-    controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
+    controller: 'ProductController as products',
+    templateUrl: 'product.html',
     title: 'Home'
   });
 

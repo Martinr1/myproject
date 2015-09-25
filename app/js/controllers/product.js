@@ -18,26 +18,24 @@ function ProductController(productService) {
   vm.newPrice = '';
   vm.newPackage = '';
 
-  vm.PackageData =  productService.getPackage();
-console.log(productService);
-
-
+  vm.PackageData =  productService.getPackageList();
 
   vm.addPackage = function(){
 
-    vm.PackageData.push({
-           frequency: vm.newFrequency,
-           name: vm.newName,
-           price: vm.newPrice
-    });
-
-    vm.newName = "";
-    vm.newPrice = "";
-    vm.newFrequency = "";
+      productService.addPackage(vm.newName,vm.newPrice,vm.newFrequency);
+      vm.clearFields();
 
   };
 
-  vm.buttonDisable = function(){
+  vm.clearFields = function(){
+
+      vm.newName = "";
+      vm.newPrice = "";
+      vm.newFrequency = "";
+
+  };
+
+  vm.buttonEnabled = function(){
 
       if (vm.newName !== "" && vm.newPrice !=="" && vm.newFrequency !=="") {
         return true;
@@ -47,10 +45,9 @@ console.log(productService);
 
   vm.deletePackage = function(item){
 
-    var index =vm.PackageData.indexOf(item);
-    vm.PackageData.splice(index,1);
+      productService.deletePackage(item);
 
-    };
+  };
 
 }
 
