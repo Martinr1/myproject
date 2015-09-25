@@ -25,4 +25,4 @@ function GroupService($q, $http) {
 
 }
 
-servicesModule.service('GroupService', ExampleService);
+servicesModule.service('GroupService', GroupService);

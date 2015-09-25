@@ -5,7 +5,7 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function GroupCtrl() {
+function GroupController() {
 
   // ViewModel
   var vm = this;
@@ -15,4 +15,4 @@ function GroupCtrl() {
 
 }
 
-controllersModule.controller('GroupController', ExampleCtrl);
+controllersModule.controller('GroupController', GroupController);
