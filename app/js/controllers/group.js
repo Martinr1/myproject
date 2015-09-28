@@ -5,14 +5,44 @@ var controllersModule = require('./_index');
 /**
  * @ngInject
  */
-function GroupController() {
+function GroupController(groupService, productService) {
 
   // ViewModel
   var vm = this;
 
-  vm.title = 'AngularJS, Gulp, and Browserify!';
-  vm.number = 1234;
+  vm.groupData =  groupService.getGroupList();
+  vm.packageData =  productService.getPackageList();
+  vm.newName ="";
+  vm.newProduct = "";
+
+  vm.addGroup = function(){
+
+      groupService.addGroup(vm.newName,vm.newProduct);
+      vm.clearFields();
+
+  };
+
+  vm.clearFields = function(){
+
+        vm.newName = "";
+        vm.newProduct = "";
+
+  };
+
+  vm.buttonEnabled = function(){
+
+      if (vm.newName !== "" && vm.newProduct !=="") {
+        return true;
+      }
+
+  };
+
+  vm.deleteGroup = function(item){
+
+      groupService.deleteGroup(item);
+
+  };
 
 }
 
-controllersModule.controller('GroupController', GroupController);
+controllersModule.controller('GroupController',["GroupService","ProductService", GroupController]);

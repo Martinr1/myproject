@@ -10,9 +10,6 @@ function ProductController(productService) {
   // ViewModel
   var vm = this;
 
-  vm.title = 'AngularJS, Gulp, and Browserify!';
-  vm.number = 1234;
-
   vm.newName = '';
   vm.newFrequency = '';
   vm.newPrice = '';

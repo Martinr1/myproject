@@ -1,0 +1,32 @@
+</br>
+
+<h1> groups </h1>
+
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Product</th>
+
+  </thead>
+  <tbody >
+    <tr ng-repeat="group in groups.groupData" >
+      <td> {{group.name}}  </td>
+      <td> {{group.product.name}}  </td>
+
+      <td><button ng-click="groups.deleteGroup(group)" >delete</button> </td>
+    </tr>
+ </tbody>
+</table>
+
+{{ groups.newName }} | {{ groups.newProduct }}
+
+<form>
+  name:   <input type="text" ng-model="groups.newName" >
+  <select name="products" ng-init="groups.newProduct = groups.packageData[0]" 
+   ng-model="groups.newProduct"
+   ng-options="product.name group by product.frequency for product in groups.packageData">
+  </select>
+  <span ng-if="groups.buttonEnabled()">
+    <input type="submit" ng-click="groups.addGroup()" value="add" />
+ </span>
+</form>

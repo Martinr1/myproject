@@ -5,24 +5,50 @@ var servicesModule = require('./_index.js');
 /**
  * @ngInject
  */
-function GroupService($q, $http) {
+function GroupService(productService) {
 
-  var service = {};
+    var service = {};
 
-  service.get = function() {
-    var deferred = $q.defer();
+    var products = productService.getPackageList();
 
-    $http.get('apiPath').success(function(data) {
-        deferred.resolve(data);
-    }).error(function(err, status) {
-        deferred.reject(err, status);
-    });
+    service.GroupData = [
+        {name: 'group1', product: products[0]},
+        {name: 'group2', product: products[1]},
+        {name: 'group3', product: products[2]},
+        {name: 'group4', product: products[3]},
+        {name: 'group5', product: products[4]},
+        {name: 'group6', product: products[5]},
+        {name: 'group7', product: products[6]}
+    ];
 
-    return deferred.promise;
-  };
+    service.deleteGroup = function (item) {
 
-  return service;
+        var index = service.GroupData.indexOf(item);
+        service.GroupData.splice(index, 1);
+
+    };
+
+    service.addGroup = function (newName, newProduct) {
+        console.log(newName);
+        console.log(newProduct);
+        service.GroupData.push({
+            name: newName,
+            product: newProduct
+        });
+
+    };
+
+    console.log(service.GroupData);
+
+
+    service.getGroupList = function () {
+
+        return service.GroupData;
+
+    };
+
+    return service;
 
 }
 
-servicesModule.service('GroupService', GroupService);
+servicesModule.service('GroupService', ['ProductService', GroupService]);
