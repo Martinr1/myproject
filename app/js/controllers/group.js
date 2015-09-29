@@ -7,42 +7,50 @@ var controllersModule = require('./_index');
  */
 function GroupController(groupService, productService) {
 
-  // ViewModel
-  var vm = this;
+    // ViewModel
+    var vm = this;
 
-  vm.groupData =  groupService.getGroupList();
-  vm.packageData =  productService.getPackageList();
-  vm.newName ="";
-  vm.newProduct = "";
+    vm.groupData = groupService.getGroupList();
+    vm.packageData = productService.getPackageList();
+    vm.newName = "";
+    vm.newProduct = "";
+    vm.isButtonEnabled = false;
 
-  vm.addGroup = function(){
 
-      groupService.addGroup(vm.newName,vm.newProduct);
-      vm.clearFields();
+    vm.showButton = function () {
 
-  };
+        vm.isButtonEnabled = true;
 
-  vm.clearFields = function(){
+    };
+
+    vm.addGroup = function () {
+
+        groupService.addGroup(vm.newName, vm.newProduct);
+        vm.clearFields();
+
+    };
+
+    vm.clearFields = function () {
 
         vm.newName = "";
         vm.newProduct = "";
 
-  };
+    };
 
-  vm.buttonEnabled = function(){
+    vm.buttonEnabled = function () {
 
-      if (vm.newName !== "" && vm.newProduct !=="") {
-        return true;
-      }
+        if (vm.newName !== "" && vm.newProduct !== "") {
+            return true;
+        }
 
-  };
+    };
 
-  vm.deleteGroup = function(item){
+    vm.deleteGroup = function (item) {
 
-      groupService.deleteGroup(item);
+        groupService.deleteGroup(item);
 
-  };
+    };
 
 }
 
-controllersModule.controller('GroupController',["GroupService","ProductService", GroupController]);
+controllersModule.controller('GroupController', ["GroupService", "ProductService", GroupController]);

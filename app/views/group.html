@@ -20,8 +20,21 @@ call handle:  <select name="products" ng-init="groups.newProduct = groups.packag
                       ng-options="product.name group by product.frequency for product in groups.packageData">
 </select>
 </br>
-prompts
 
+
+<label>prompts <input type="checkbox" ng-model="showPrompt" /></label><br />
+
+
+</br>
+<span ng-show='showPrompt'>
+welcome:
+</br>
+Goodbye:
+</br>
+info:
+</br>
+response:
+</span>
 </br>
 
 <button ng-click="groups.deleteGroup(group)">delete</button>
