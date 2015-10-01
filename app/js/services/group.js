@@ -22,13 +22,13 @@ function GroupService(productService) {
     ];
 
     service.callHandleData  = [
-        {"reject_busy": 'Reject with busy signal'},
-        {"forward": 'forward to administrators'}
+        {value: "reject_busy", label: 'Reject with busy signal'},
+        {value: "forward", label: 'forward to administrators'}
 
     ];
     service.modeData = [
-        {mode: 'chat'},
-        {mode: 'broadcast'}
+        {value: 'groupchat',  label: 'Chat Mode'},
+        {value: 'broadcast', label: 'Broadcast Mode'}
 
     ];
     service.promptsData = [
