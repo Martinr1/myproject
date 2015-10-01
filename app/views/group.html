@@ -1,32 +1,42 @@
-</br>
+<br>
 
 
 <br>
 <h1>Group Name - Phone</h1>
 
-
+{{groups.callHandleData[0]}} <br>
+{{groups.packageData[1]}} <br>
 Plan:   <select name="products" ng-init="groups.newProduct = groups.packageData[0]"
                 ng-model="groups.newProduct"
                 ng-options="product.name group by product.frequency for product in groups.packageData">
 </select>
-</br>
-Mode:  <select name="products" ng-init="groups.newProduct = groups.packageData[0]"
-               ng-model="groups.newProduct"
-               ng-options="product.name group by product.frequency for product in groups.packageData">
+<br>
+mode:  <select name="modes" ng-init="groups.newMode = groups.modeData[0]"
+                       ng-model="groups.newMode"
+                       ng-options="mode.mode  for mode in groups.modeData">
 </select>
-</br>
-call handle:  <select name="products" ng-init="groups.newProduct = groups.packageData[0]"
-                      ng-model="groups.newProduct"
-                      ng-options="product.name group by product.frequency for product in groups.packageData">
+<br>
+call handle: <select name="modes" ng-init="groups.newMode = groups.modeData[0]"
+                     ng-model="groups.newMode"
+                     ng-options="mode.mode  for mode in groups.modeData">
 </select>
+
+
+<br>
+<br>
+
+<div ng-repeat="handle in groups.callHandleData">
+    <div ng-repeat="(key, value) in handle" >
+        {{key}} : {{value}}
+    </div>
+</div>
+
+
+<label>prompts <input type="checkbox" ng-model="groups.showPrompt" /></label><br />
+
+
 </br>
-
-
-<label>prompts <input type="checkbox" ng-model="showPrompt" /></label><br />
-
-
-</br>
-<span ng-show='showPrompt'>
+<span ng-show='groups.showPrompt'>
 welcome:
 </br>
 Goodbye:

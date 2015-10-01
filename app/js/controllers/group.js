@@ -11,10 +11,16 @@ function GroupController(groupService, productService) {
     var vm = this;
 
     vm.groupData = groupService.getGroupList();
+    vm.modeData = groupService.getModeList();
+    vm.callHandleData = groupService.getCallHandleList();
     vm.packageData = productService.getPackageList();
     vm.newName = "";
     vm.newProduct = "";
+    vm.newMessage ="";
     vm.isButtonEnabled = false;
+    vm.showPrompt = false;
+    vm.newHandle = "";
+    vm.newMode= "";
 
 
     vm.showButton = function () {
